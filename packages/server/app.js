@@ -7,8 +7,8 @@ const io = require('socket.io')(http);
 io.on('connection', (socket) => {
   socket.on('message', (msg) => {
     console.log(msg);
-    io.emit('event', msg);
+    io.emit('message', msg);
   });
 });
 
-http.listen(3000, () => console.log('Listening on port 3000'));
+http.listen(4444, () => console.log('Listening on port 4444'));
