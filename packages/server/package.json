@@ -4,9 +4,15 @@
   "main": "index.js",
   "author": "Nathalia Oliveira <nathaliacristina20@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
   "dependencies": {
-    "@types/socket.io": "^2.1.10",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/socket.io": "^2.1.10",
+    "nodemon": "^2.0.4"
   }
 }
