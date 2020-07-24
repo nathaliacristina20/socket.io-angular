@@ -1,25 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 import { SocketIoService } from './socket-io.service';
 import { Message } from './message';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   nickname: string;
   message: string;
 
-  constructor(private socketService: SocketIoService){
+  messages: Message[] = [];
 
-  }
+  private subscriptionMessages: Subscription;
+
+  constructor(private socketService: SocketIoService){ }
 
   ngOnInit(){
-    this.socketService.messages()
+    this.subscriptionMessages = this.socketService.messages()
       .subscribe((m: Message) => {
         console.log(m);
+        this.messages.push(m);
       })
   }
 
@@ -30,5 +34,9 @@ export class AppComponent {
     });
 
     this.message = '';
+  }
+
+  ngOnDestroy(){
+    this.subscriptionMessages.unsubscribe();
   }
 }
