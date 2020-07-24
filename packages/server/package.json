@@ -1,0 +1,12 @@
+{
+  "name": "@socket.io-angular/server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nathalia Oliveira <nathaliacristina20@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/socket.io": "^2.1.10",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}
