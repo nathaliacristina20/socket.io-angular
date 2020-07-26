@@ -24,6 +24,10 @@ export class SocketIoService {
   send(msg: Message){
     this.socket.emit('message', msg);
   }
+
+  join(nickname: string){
+    
+  }
   
   messages(){
     return this.subjMessages.asObservable();
