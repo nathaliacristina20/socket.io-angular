@@ -18,13 +18,11 @@ export class JoinChatComponent implements OnInit {
             return;
         }
 
-        console.log(this.nickname);
-
-        this.router.navigateByUrl('chat', {
+        this.router.navigate(['chat'], {
             queryParams: {
                 nickname: this.nickname,
             },
         });
-      
+        
     }
 }

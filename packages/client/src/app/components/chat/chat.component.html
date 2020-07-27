@@ -1,0 +1,77 @@
+<main>
+
+  <aside class="menu">
+
+    <div class="wrap">
+      <div class="box-rooms">
+        <h3>Salas</h3>
+        <nav class="rooms">
+          <a href="#" class="current"><b># geral</b></a>
+          <a href="#"><b># justDevelopers</b></a>
+        </nav>
+      </div>
+
+      <div>
+        <ul class="participants">
+          <li>
+            <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
+            <strong>Felipe Bueno</strong>
+          </li>
+          <li>
+            <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
+            <strong>Carlos Oliveira</strong>
+          </li>
+          <li>
+            <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
+            <strong>Jullie Anny</strong>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </aside>
+
+  <aside class="aside-conversation">
+
+    <div class="wrapper-conversation">
+
+      <div class="settings">
+        <div class="profile">
+          <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
+          <div class="content-input">
+            {{nickname}}
+          </div>
+          <!--<button (click)="join()">Entrar</button>!-->
+
+        </div>
+        <!--<div class="logout">Sair</div>!-->
+      </div>
+
+      <div class="canva-conversation">
+
+        <mat-list fxFill class="chat-messages">
+
+          <mat-list-item class="message" *ngFor="let m of messages" [class.msg-reverse]="m.from!==nickname">
+            <div class="aux">
+              <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="">
+              <div class="ballon" [class.msg-from-me]="m.from===nickname">
+                <strong *ngIf="m.from!==nickname" mat-line>{{m.from}} says...</strong>
+                <p mat-line>{{m.message}}</p>
+              </div>
+            </div>
+          </mat-list-item>
+
+        </mat-list>
+
+
+      </div>
+
+      <div class="content-input">
+        <input type="text" placeholder="Type a message here..." [(ngModel)]="message" (keyup.enter)="send()" />
+      </div>
+
+    </div>
+  </aside>
+
+</main>
